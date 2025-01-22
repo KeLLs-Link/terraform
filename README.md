@@ -36,3 +36,17 @@ It is suitable to note that infrastruture provissioning should be done in the co
 ### Difference between Ansible and Terraform 
 Firat of all,
 1. Both Ansible and terraform are Infrastructure as a code (IAC) tool. But however, Terraform is mostly used for Infrastructure provissioining. Meaning they are both used to automate the provissioning, configuring and managing of infrastructure.
+
+However, ***terraform is mainly used as an infratructure provissioning tool**. that's where it's main power lies. it also has the capability to deploy applications in other tools o that infrastructure.
+
+Ansible on the other hand is mainly a ***configuration management tool** so once the infrastructure is provissioned, ansible can now be used to configure the infrastructure, deploy applications on it, install and update softawres on that infrastructure, etc.
+
+- ### Preparing infrastructure (for example on the aws cloud platform) for deploying applciations entails that:
+1. Prepare your network space (Private or public network, VPC,)
+2. Create users and permissions
+3. Create/provission EC2 server instance
+4. Install Docker and other tools (if needed) and any other tool you might need for your application.
+5. Setup Security like; networks, firewalls, etc.
+
+Once your infrastruture is prepared, the developer can now deploy the docker application on the prepared infrastructure. 
+
