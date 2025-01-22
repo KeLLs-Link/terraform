@@ -41,6 +41,8 @@ However, ***terraform is mainly used as an infratructure provissioning tool**. t
 
 Ansible on the other hand is mainly a ***configuration management tool** so once the infrastructure is provissioned, ansible can now be used to configure the infrastructure, deploy applications on it, install and update softawres on that infrastructure, etc.
 
+Terraform is better for provissioning infrastructure, Ansible is better for configuring that infrastructure. 
+
 - ### Preparing infrastructure (for example on the aws cloud platform) for deploying applciations entails that:
 1. Prepare your network space (Private or public network, VPC,)
 2. Create users and permissions
@@ -50,3 +52,33 @@ Ansible on the other hand is mainly a ***configuration management tool** so once
 
 Once your infrastruture is prepared, the developer can now deploy the docker application on the prepared infrastructure. 
 
+### **Terraform Use Case.**
+- **Managing Existing Infrasture**
+Terraform makes it easy to provission infrastructure and continously make changes and updates to it.
+- **Replicating existing infrastructure.**
+After providdioning infrastructure in Dev environment, you might Decide you want to realease your infrastructure to production environment. So terraform can help you replicate a functional architecture from a Dev env onto a prod env. 
+
+***You can easily spin up an identical infrastructure and setup using the same terraform code that you used in the first setup***
+
+### **Terraform Architecture- How Does Terraform Work?**
+
+How does terraform connect to the Infrastructure Provider Platforms (e.g AWS)?
+and use all these technologies to provission stuffs?
+
+Terraform has two main components that makes up it's architecture. These are;
+
+**1.  Terraform's Core:**
+The core uses two input sources in order to do it's job. It takes terraform configuration 
+that you as a user write and where you define what needs to be created or provissioned (TF- Config file is where you specify the infrastures or services you want to provission)
+
+**2. Terraform State:** where terraform keeps the "up to date" state of the current setup of how the infrastruture looks like.
+
+So the terraform core takes this inpute (TF- Config & Terraform State) and figgure out the plan (what needs to be created, updated or destroyed) of what needs to be done. So the core compare what is the current state of the infrastructure to what is in the desired state/ end result (TF-config file). Terrafrom now figures out what needs to be done to get to the desired state as defined in the configuration file. 
+![image](./images/core%20and%20state.jpg)
+
+3. **Providers for specific technologies:** for infrastructure level task,
+This could be AWS, Azure or other IaaS platforms.
+
+Terraform also has providers for other high level components like Kubernetes (K8s) and other PaaS. Also some SaaS tools like Fastly.
+
+Terraform has over 100 Providers and each provider gives terraform user access to it's resources
