@@ -81,4 +81,19 @@ This could be AWS, Azure or other IaaS platforms.
 
 Terraform also has providers for other high level components like Kubernetes (K8s) and other PaaS. Also some SaaS tools like Fastly.
 
-Terraform has over 100 Providers and each provider gives terraform user access to it's resources
+Terraform has over 100 Providers and each provider gives terraform user access to it's resources. Each provider gives terraform access to it's different resources.
+
+- Once terraform core creates an execution plan based on the input from ***config file and state***, it then uses providers from specific technologies to execute the plan; to connect to those platforms and to carry out those execution steps in the config file.
+
+![image](./images/core.jpg)
+
+- **Example of config file**
+
+![image](./images/config%20file.jpg)
+![screenshot](./images/kubernetes%20config%20file.jpg)
+
+Terraform config file syntax is very intuitive I would say. Basically you define the resource and attributes of a certain technology or provider and terraform will go ahead to create that for you.
+
+- **What does declarative approach inwhich terraform configuration files are written in mean?**
+
+WHen you create a terrraform file, instead of defining the steps to be executed (which is an imperative approach), for instance to create a vpc, spin-up a number of ec2 instances, or create a network configuration, you simply define the end state you desire. The declarative approach of a terraform config file moves from a current state of your infrastructure to your new desired state. 
